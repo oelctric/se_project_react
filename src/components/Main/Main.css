@@ -1,0 +1,55 @@
+.main {
+  flex: 1;
+  width: 100%;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.main__subtitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 28px 0 24px;
+}
+
+.main__cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.main__card {
+  min-width: 0;
+}
+
+/* Tablet: 3 columns */
+@media (max-width: 1024px) {
+  .main__cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Phone: 2 columns */
+@media (max-width: 768px) {
+  .main {
+    padding: 0 20px;
+  }
+
+  .main__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small phone: tighter 2 columns */
+@media (max-width: 420px) {
+  .main {
+    padding: 0 16px;
+  }
+
+  .main__cards {
+    gap: 16px;
+  }
+}

@@ -1,0 +1,32 @@
+.item-card {
+  position: relative;
+  width: 100%;
+  height: 328px;
+  background-color: #e9e9e9;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.item-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.item-card__pill {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 2px 12px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+}
