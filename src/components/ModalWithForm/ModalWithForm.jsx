@@ -20,7 +20,7 @@ function ModalWithForm({ isOpen, title, name, buttonText, onClose, children }) {
           onClick={onClose}
           aria-label="Close"
         >
-          <img src="/images/close.svg" alt="" />
+          <img src="/images/close.svg" alt="Close" />
         </button>
         <h2 className="modal__title">{title}</h2>
         <form name={name} onSubmit={handleSubmit}>

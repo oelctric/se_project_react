@@ -17,7 +17,7 @@ function ItemModal({ isOpen, item, onClose }) {
             onClick={onClose}
             aria-label="Close"
           >
-            <img src="/images/close.svg" alt="" />
+            <img src="/images/close.svg" alt="Close" />
           </button>
           <div className="item-modal__image">
             <img src={item.link} alt={item.name} />

@@ -36,7 +36,7 @@ function Header({ weather, onOpenNewGarmentModal }) {
                 ? '/images/menu-close.svg'
                 : '/images/burger.svg'
             }
-            alt=""
+            alt="Menu"
           />
         </button>
         <span className="header__date">

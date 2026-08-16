@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Header from '../Header/Header.jsx';
 import Main from '../Main/Main.jsx';
 import Footer from '../Footer/Footer.jsx';
@@ -43,15 +43,7 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        setActiveModal('');
-      }
-    };
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  const closeActiveModal = useCallback(() => setActiveModal(''), []);
 
   const handleOpenNewGarmentModal = () => setActiveModal('new-garment');
 
@@ -60,7 +52,15 @@ function App() {
     setActiveModal('selected-item');
   };
 
-  const handleCloseModal = () => setActiveModal('');
+  useEffect(() => {
+    const handleEscClose = (event) => {
+      if (event.key === 'Escape') {
+        closeActiveModal();
+      }
+    };
+    document.addEventListener('keydown', handleEscClose);
+    return () => document.removeEventListener('keydown', handleEscClose);
+  }, [activeModal, closeActiveModal]);
 
   return (
     <div className="app">
@@ -79,7 +79,7 @@ function App() {
         title="New garment"
         name="new-garment"
         buttonText="Add garment"
-        onClose={handleCloseModal}
+        onClose={closeActiveModal}
       >
         <div className="form__field">
           <label className="form__label" htmlFor="garment-name">
@@ -105,7 +105,7 @@ function App() {
               name="image"
               placeholder="Image URL"
             />
-            <img className="form__link-icon" src="/images/link.svg" alt="" />
+            <img className="form__link-icon" src="/images/link.svg" alt="Link" />
           </div>
         </div>
         <div className="form__field">
@@ -136,7 +136,7 @@ function App() {
       <ItemModal
         isOpen={activeModal === 'selected-item'}
         item={selectedCard}
-        onClose={handleCloseModal}
+        onClose={closeActiveModal}
       />
     </div>
   );
