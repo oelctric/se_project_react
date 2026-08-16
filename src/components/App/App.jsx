@@ -95,13 +95,13 @@ function App() {
         </div>
         <div className="form__field">
           <label className="form__label" htmlFor="garment-image">
-            Image
+            Image URL
           </label>
           <div className="form__image-row">
             <input
               className="form__input"
               id="garment-image"
-              type="text"
+              type="url"
               name="image"
               placeholder="Image URL"
             />
