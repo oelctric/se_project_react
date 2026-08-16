@@ -11,7 +11,7 @@ function Main({ weather, clothingItems, onCardClick }) {
 
   return (
     <main className="main">
-      <WeatherCard temperature={weather.temperature} />
+      <WeatherCard weather={weather} />
       <h2 className="main__subtitle">
         Today is {weather.temperature}° F / You may want to wear:
       </h2>

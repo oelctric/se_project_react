@@ -6,18 +6,41 @@ import ModalWithForm from '../ModalWithForm/ModalWithForm.jsx';
 import ItemModal from '../ItemModal/ItemModal.jsx';
 import { defaultClothingItems } from '../../utils/clothingItems.js';
 import { getWeatherData } from '../../utils/weatherApi.js';
+import { LATITUDE, LONGITUDE } from '../../utils/constants.js';
 import './App.css';
+
+const FALLBACK_WEATHER = {
+  temperature: 75,
+  location: 'New York',
+  icon: '01d',
+};
 
 function App() {
   const [clothingItems] = useState(defaultClothingItems);
-  const [weather, setWeather] = useState({ temperature: 75, location: 'New York' });
+  const [weather, setWeather] = useState(FALLBACK_WEATHER);
   const [activeModal, setActiveModal] = useState('');
   const [selectedCard, setSelectedCard] = useState(null);
 
   useEffect(() => {
-    getWeatherData()
-      .then((data) => setWeather(data))
-      .catch(() => setWeather({ temperature: 75, location: 'New York' }));
+    const loadWeather = (latitude, longitude) => {
+      getWeatherData(latitude, longitude)
+        .then(setWeather)
+        .catch(() => setWeather(FALLBACK_WEATHER));
+    };
+
+    const loadDefaultLocation = () =>
+      loadWeather(Number(LATITUDE), Number(LONGITUDE));
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) =>
+          loadWeather(position.coords.latitude, position.coords.longitude),
+        loadDefaultLocation,
+        { timeout: 10000 },
+      );
+    } else {
+      loadDefaultLocation();
+    }
   }, []);
 
   useEffect(() => {

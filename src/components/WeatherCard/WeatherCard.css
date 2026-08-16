@@ -7,6 +7,9 @@
   overflow: hidden;
   display: flex;
   align-items: center;
+  background-position: right center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
 }
 
 .weather-card__temp {
@@ -17,10 +20,62 @@
   margin-left: 16px;
 }
 
-.weather-card__icon {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  height: 80px;
-  width: auto;
+.weather-card--day-sunny {
+  background-color: #00a3ff;
+  background-image: url('/images/weather-card.svg');
+}
+
+.weather-card--day-cloudy {
+  background-color: #00a3ff;
+  background-image: url('/images/weather-day-cloudy.svg');
+}
+
+.weather-card--day-rain {
+  background-color: #6ca6c7;
+  background-image: url('/images/weather-day-rain.svg');
+}
+
+.weather-card--day-snow {
+  background-color: #6ca6c7;
+  background-image: url('/images/weather-day-snow.svg');
+}
+
+.weather-card--day-storm {
+  background-color: #6ca6c7;
+  background-image: url('/images/weather-day-storm.svg');
+}
+
+.weather-card--day-fog {
+  background-color: #6ca6c7;
+  background-image: url('/images/weather-day-fog.svg');
+}
+
+.weather-card--night-sunny {
+  background-color: #2e4a6b;
+  background-image: url('/images/weather-night-sunny.svg');
+}
+
+.weather-card--night-cloudy {
+  background-color: #2e4a6b;
+  background-image: url('/images/weather-night-cloudy.svg');
+}
+
+.weather-card--night-rain {
+  background-color: #2e4a6b;
+  background-image: url('/images/weather-night-rain.svg');
+}
+
+.weather-card--night-snow {
+  background-color: #2e4a6b;
+  background-image: url('/images/weather-night-snow.svg');
+}
+
+.weather-card--night-storm {
+  background-color: #2e4a6b;
+  background-image: url('/images/weather-night-storm.svg');
+}
+
+.weather-card--night-fog {
+  background-color: #2e4a6b;
+  background-image: url('/images/weather-night-fog.svg');
 }

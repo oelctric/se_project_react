@@ -1,15 +1,12 @@
+import { getWeatherVariant } from '../../utils/weatherApi.js';
 import './WeatherCard.css';
 
-function WeatherCard({ temperature }) {
+function WeatherCard({ weather }) {
+  const variant = getWeatherVariant(weather);
+
   return (
-    <div className="weather-card">
-      <span className="weather-card__temp">{temperature}°F</span>
-      <img
-        className="weather-card__icon"
-        src="/images/weather-card.svg"
-        alt=""
-        aria-hidden="true"
-      />
+    <div className={`weather-card weather-card--${variant}`}>
+      <span className="weather-card__temp">{weather.temperature}°F</span>
     </div>
   );
 }
