@@ -49,7 +49,3 @@ The weather card adapts to the live conditions: it switches between day and nigh
 - `src/utils/` — clothing items, coordinates, and the weather API helpers
 - `src/vendor/` — `normalize.css`, fonts, and font styles
 - `public/images/` — item and weather-card graphics
-
-## Links
-
-- [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
