@@ -51,31 +51,31 @@
 }
 
 .weather-card--night-sunny {
-  background-color: #2e4a6b;
+  background-color: #286897;
   background-image: url('/images/weather-night-sunny.svg');
 }
 
 .weather-card--night-cloudy {
-  background-color: #2e4a6b;
+  background-color: #286897;
   background-image: url('/images/weather-night-cloudy.svg');
 }
 
 .weather-card--night-rain {
-  background-color: #2e4a6b;
+  background-color: #286897;
   background-image: url('/images/weather-night-rain.svg');
 }
 
 .weather-card--night-snow {
-  background-color: #2e4a6b;
+  background-color: #286897;
   background-image: url('/images/weather-night-snow.svg');
 }
 
 .weather-card--night-storm {
-  background-color: #2e4a6b;
+  background-color: #286897;
   background-image: url('/images/weather-night-storm.svg');
 }
 
 .weather-card--night-fog {
-  background-color: #2e4a6b;
+  background-color: #286897;
   background-image: url('/images/weather-night-fog.svg');
 }
