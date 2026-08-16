@@ -6,7 +6,7 @@ import ModalWithForm from '../ModalWithForm/ModalWithForm.jsx';
 import ItemModal from '../ItemModal/ItemModal.jsx';
 import { defaultClothingItems } from '../../utils/clothingItems.js';
 import { getWeatherData } from '../../utils/weatherApi.js';
-import { LATITUDE, LONGITUDE } from '../../utils/constants.js';
+import { COORDINATES } from '../../utils/constants.js';
 import './App.css';
 
 const FALLBACK_WEATHER = {
@@ -29,14 +29,14 @@ function App() {
     };
 
     const loadDefaultLocation = () =>
-      loadWeather(Number(LATITUDE), Number(LONGITUDE));
+      loadWeather(COORDINATES.latitude, COORDINATES.longitude);
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) =>
           loadWeather(position.coords.latitude, position.coords.longitude),
         loadDefaultLocation,
-        { timeout: 10000 },
+        { timeout: 10000 }
       );
     } else {
       loadDefaultLocation();
@@ -64,7 +64,10 @@ function App() {
 
   return (
     <div className="app">
-      <Header weather={weather} onOpenNewGarmentModal={handleOpenNewGarmentModal} />
+      <Header
+        weather={weather}
+        onOpenNewGarmentModal={handleOpenNewGarmentModal}
+      />
       <Main
         weather={weather}
         clothingItems={clothingItems}
@@ -106,10 +109,17 @@ function App() {
           </div>
         </div>
         <div className="form__field">
-          <p className="form__label form__label--standalone">Select the weather type:</p>
+          <p className="form__label form__label--standalone">
+            Select the weather type:
+          </p>
           <div className="form__radios">
             <label className="form__radio">
-              <input type="radio" name="weather-type" value="hot" defaultChecked />
+              <input
+                type="radio"
+                name="weather-type"
+                value="hot"
+                defaultChecked
+              />
               <span>Hot</span>
             </label>
             <label className="form__radio">

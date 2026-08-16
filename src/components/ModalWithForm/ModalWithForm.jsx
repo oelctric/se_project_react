@@ -10,7 +10,10 @@ function ModalWithForm({ isOpen, title, name, buttonText, onClose, children }) {
       className={`modal modal_type_${name} ${isOpen ? 'modal_is-opened' : ''}`}
       onClick={onClose}
     >
-      <div className="modal__content" onClick={(event) => event.stopPropagation()}>
+      <div
+        className="modal__content"
+        onClick={(event) => event.stopPropagation()}
+      >
         <button
           type="button"
           className="modal__close"

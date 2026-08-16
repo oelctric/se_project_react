@@ -6,7 +6,7 @@ import './Main.css';
 function Main({ weather, clothingItems, onCardClick }) {
   const condition = getWeatherCondition(weather.temperature);
   const filteredItems = clothingItems.filter(
-    (item) => item.weather.toLowerCase() === condition,
+    (item) => item.weather.toLowerCase() === condition
   );
 
   return (

@@ -32,7 +32,9 @@ function Header({ weather, onOpenNewGarmentModal }) {
           <img
             className="header__icon"
             src={
-              isMobileMenuOpened ? '/images/menu-close.svg' : '/images/burger.svg'
+              isMobileMenuOpened
+                ? '/images/menu-close.svg'
+                : '/images/burger.svg'
             }
             alt=""
           />
@@ -45,7 +47,11 @@ function Header({ weather, onOpenNewGarmentModal }) {
             isMobileMenuOpened ? 'header__nav_is-opened' : ''
           }`}
         >
-          <button type="button" className="header__add" onClick={handleAddClothes}>
+          <button
+            type="button"
+            className="header__add"
+            onClick={handleAddClothes}
+          >
             + Add clothes
           </button>
           <span className="header__name">omar</span>

@@ -7,7 +7,10 @@ function ItemModal({ isOpen, item, onClose }) {
       onClick={onClose}
     >
       {item && (
-        <div className="item-modal" onClick={(event) => event.stopPropagation()}>
+        <div
+          className="item-modal"
+          onClick={(event) => event.stopPropagation()}
+        >
           <button
             type="button"
             className="item-modal__close"

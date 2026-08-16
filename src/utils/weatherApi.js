@@ -63,7 +63,9 @@ const getConditionCategory = (icon) => {
 };
 
 const getWeatherVariant = (weather) => {
-  const timeOfDay = isDaytime(weather.sunrise, weather.sunset) ? 'day' : 'night';
+  const timeOfDay = isDaytime(weather.sunrise, weather.sunset)
+    ? 'day'
+    : 'night';
   const category = getConditionCategory(weather.icon);
   return `${timeOfDay}-${category}`;
 };
