@@ -20,6 +20,7 @@ function App() {
   const [weather, setWeather] = useState(FALLBACK_WEATHER);
   const [activeModal, setActiveModal] = useState('');
   const [selectedCard, setSelectedCard] = useState(null);
+  const [weatherType, setWeatherType] = useState('hot');
 
   useEffect(() => {
     const loadWeather = (latitude, longitude) => {
@@ -118,16 +119,29 @@ function App() {
                 type="radio"
                 name="weather-type"
                 value="hot"
-                defaultChecked
+                checked={weatherType === 'hot'}
+                onChange={() => setWeatherType('hot')}
               />
               <span>Hot</span>
             </label>
             <label className="form__radio">
-              <input type="radio" name="weather-type" value="warm" />
+              <input
+                type="radio"
+                name="weather-type"
+                value="warm"
+                checked={weatherType === 'warm'}
+                onChange={() => setWeatherType('warm')}
+              />
               <span>Warm</span>
             </label>
             <label className="form__radio">
-              <input type="radio" name="weather-type" value="cold" />
+              <input
+                type="radio"
+                name="weather-type"
+                value="cold"
+                checked={weatherType === 'cold'}
+                onChange={() => setWeatherType('cold')}
+              />
               <span>Cold</span>
             </label>
           </div>
