@@ -4,7 +4,7 @@ import ToggleSwitch from '../ToggleSwitch/ToggleSwitch.jsx';
 import './Header.css';
 
 function Header({ weather, onOpenNewGarmentModal }) {
-  const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
+  const [isMobileMenuOpened, setIsMobileMenuOpen] = useState(false);
 
   const currentDate = new Date().toLocaleString('default', {
     month: 'long',
@@ -12,11 +12,11 @@ function Header({ weather, onOpenNewGarmentModal }) {
   });
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpened((prev) => !prev);
+    setIsMobileMenuOpen((prev) => !prev);
   };
 
   const handleAddClothes = () => {
-    setIsMobileMenuOpened(false);
+    setIsMobileMenuOpen(false);
     onOpenNewGarmentModal();
   };
 

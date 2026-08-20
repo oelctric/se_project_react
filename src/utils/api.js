@@ -32,6 +32,10 @@ const deleteItem = (id) => {
       throw new Error(`API error: ${response.status}`);
     }
 
+    if (!response.body) {
+      return undefined;
+    }
+
     return response.json();
   });
 };

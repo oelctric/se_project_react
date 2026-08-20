@@ -95,15 +95,15 @@ function App() {
     }
     try {
       await deleteItem(cardToBeDeleted._id);
+      setClothingItems(
+        clothingItems.filter((item) => item._id !== cardToBeDeleted._id)
+      );
+      setCardToBeDeleted(null);
+      setSelectedCard(null);
+      setActiveModal('');
     } catch {
       /* Request failed: keep the confirmation modal open */
     }
-    setClothingItems(
-      clothingItems.filter((item) => item._id !== cardToBeDeleted._id)
-    );
-    setCardToBeDeleted(null);
-    setSelectedCard(null);
-    setActiveModal('');
   };
 
   useEffect(() => {
