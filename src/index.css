@@ -38,6 +38,7 @@ body {
   position: absolute;
   top: 20px;
   right: 28px;
+  z-index: 1;
   background: none;
   border: none;
   padding: 0;
