@@ -1,5 +1,10 @@
 import { API_KEY } from './constants.js';
 
+const HOT_THRESHOLD_F = 86;
+const WARM_THRESHOLD_F = 66;
+const CELSIUS_OFFSET = 32;
+const CELSIUS_RATIO = 5 / 9;
+
 const getWeatherData = async (latitude, longitude) => {
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${API_KEY}`;
 
@@ -10,8 +15,13 @@ const getWeatherData = async (latitude, longitude) => {
 
   const data = await response.json();
 
+  const temperatureF = Math.round(data.main.temp);
+
   return {
-    temperature: Math.round(data.main.temp),
+    temperature: {
+      F: temperatureF,
+      C: Math.round((temperatureF - CELSIUS_OFFSET) * CELSIUS_RATIO),
+    },
     location: data.name,
     icon: data.weather[0].icon,
     sunrise: data.sys.sunrise,
@@ -20,10 +30,10 @@ const getWeatherData = async (latitude, longitude) => {
 };
 
 const getWeatherCondition = (temperature) => {
-  if (temperature >= 86) {
+  if (temperature >= HOT_THRESHOLD_F) {
     return 'hot';
   }
-  if (temperature >= 66) {
+  if (temperature >= WARM_THRESHOLD_F) {
     return 'warm';
   }
   return 'cold';

@@ -32,3 +32,41 @@ body {
   opacity: 1;
   visibility: visible;
 }
+
+/* Shared close button (all modal types) */
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.modal__close:hover {
+  opacity: 0.6;
+}
+
+.modal__close-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* Shared item title pill (cards and item modal) */
+.item-pill {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 2px 12px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+}

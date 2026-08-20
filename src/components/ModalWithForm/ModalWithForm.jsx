@@ -1,10 +1,14 @@
 import './ModalWithForm.css';
 
-function ModalWithForm({ isOpen, title, name, buttonText, onClose, children }) {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
-
+function ModalWithForm({
+  isOpen,
+  title,
+  name,
+  buttonText,
+  onClose,
+  onSubmit,
+  children,
+}) {
   return (
     <div
       className={`modal modal_type_${name} ${isOpen ? 'modal_is-opened' : ''}`}
@@ -20,10 +24,14 @@ function ModalWithForm({ isOpen, title, name, buttonText, onClose, children }) {
           onClick={onClose}
           aria-label="Close"
         >
-          <img src="/images/close.svg" alt="Close" />
+          <img
+            className="modal__close-icon"
+            src="/images/close.svg"
+            alt="Close"
+          />
         </button>
         <h2 className="modal__title">{title}</h2>
-        <form name={name} onSubmit={handleSubmit}>
+        <form name={name} onSubmit={onSubmit}>
           {children}
           <button type="submit" className="modal__submit">
             {buttonText}

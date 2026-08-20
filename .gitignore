@@ -30,3 +30,7 @@ figma_exports/
 *.njsproj
 *.sln
 *.sw?
+
+# Local design-comparison scratch
+.design-check/
+.playwright-mcp/

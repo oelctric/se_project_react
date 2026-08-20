@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import ToggleSwitch from '../ToggleSwitch/ToggleSwitch.jsx';
 import './Header.css';
 
 function Header({ weather, onOpenNewGarmentModal }) {
@@ -19,9 +21,13 @@ function Header({ weather, onOpenNewGarmentModal }) {
   };
 
   return (
-    <header className="header">
+    <header
+      className={`header ${isMobileMenuOpened ? 'header_is-menu-opened' : ''}`}
+    >
       <div className="header__row">
-        <span className="header__logo">wtwr°</span>
+        <Link className="header__logo" to="/">
+          wtwr°
+        </Link>
         <button
           type="button"
           className="header__menu-toggle"
@@ -47,6 +53,7 @@ function Header({ weather, onOpenNewGarmentModal }) {
             isMobileMenuOpened ? 'header__nav_is-opened' : ''
           }`}
         >
+          <ToggleSwitch />
           <button
             type="button"
             className="header__add"
@@ -54,12 +61,14 @@ function Header({ weather, onOpenNewGarmentModal }) {
           >
             + Add clothes
           </button>
-          <span className="header__name">omar</span>
-          <img
-            className="header__avatar"
-            src="/images/avatar.png"
-            alt="User avatar"
-          />
+          <Link className="header__profile" to="/profile">
+            <span className="header__name">omar</span>
+            <img
+              className="header__avatar"
+              src="/images/avatar.png"
+              alt="User avatar"
+            />
+          </Link>
         </div>
       </div>
     </header>

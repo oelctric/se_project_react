@@ -17,16 +17,14 @@
   font-weight: 700;
   line-height: 40px;
   color: #fff;
-  margin-left: 16px;
+  margin: 0 0 0 16px;
 }
 
 .weather-card--day-sunny {
-  background-color: #00a3ff;
   background-image: url('/images/weather-card.svg');
 }
 
 .weather-card--day-cloudy {
-  background-color: #00a3ff;
   background-image: url('/images/weather-day-cloudy.svg');
 }
 

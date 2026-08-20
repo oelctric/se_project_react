@@ -1,6 +1,6 @@
 import './ItemModal.css';
 
-function ItemModal({ isOpen, item, onClose }) {
+function ItemModal({ isOpen, item, onClose, openConfirmationModal }) {
   return (
     <div
       className={`modal modal_type_selected-item ${isOpen ? 'modal_is-opened' : ''}`}
@@ -13,17 +13,37 @@ function ItemModal({ isOpen, item, onClose }) {
         >
           <button
             type="button"
-            className="item-modal__close"
+            className="modal__close"
             onClick={onClose}
             aria-label="Close"
           >
-            <img src="/images/close.svg" alt="Close" />
+            <img
+              className="modal__close-icon"
+              src="/images/close.svg"
+              alt="Close"
+            />
           </button>
           <div className="item-modal__image">
-            <img src={item.link} alt={item.name} />
-            <span className="item-modal__pill">{item.name}</span>
+            <img
+              className="item-modal__photo"
+              src={item.imageUrl}
+              alt={item.name}
+            />
+            <span className="item-pill">{item.name}</span>
           </div>
-          <p className="item-modal__weather">Weather: {item.weather}</p>
+          <div className="item-modal__actions">
+            <span className="item-modal__name">{item.name}</span>
+            <span className="item-modal__weather">
+              Weather: {item.weather.toLowerCase()}
+            </span>
+            <button
+              type="button"
+              className="item-modal__delete"
+              onClick={() => openConfirmationModal(item)}
+            >
+              Delete item
+            </button>
+          </div>
         </div>
       )}
     </div>

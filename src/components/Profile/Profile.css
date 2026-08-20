@@ -1,0 +1,17 @@
+.profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 40px 48px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+    padding: 0 20px 32px;
+  }
+}

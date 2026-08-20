@@ -13,8 +13,8 @@ function ItemCard({ item, onClick }) {
         }
       }}
     >
-      <img className="item-card__image" src={item.link} alt={item.name} />
-      <span className="item-card__pill">{item.name}</span>
+      <img className="item-card__image" src={item.imageUrl} alt={item.name} />
+      <span className="item-pill">{item.name}</span>
     </div>
   );
 }
