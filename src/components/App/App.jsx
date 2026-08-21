@@ -41,7 +41,10 @@ function App() {
     const loadWeather = (latitude, longitude) => {
       getWeatherData(latitude, longitude)
         .then(setWeather)
-        .catch(() => setWeather(FALLBACK_WEATHER));
+        .catch((error) => {
+          console.error('Failed to load weather data:', error);
+          setWeather(FALLBACK_WEATHER);
+        });
     };
 
     const loadDefaultLocation = () =>
@@ -74,8 +77,9 @@ function App() {
       setClothingItems([newItem, ...clothingItems]);
       handleReset();
       setActiveModal('');
-    } catch {
+    } catch (error) {
       /* Request failed: keep the modal open, leave state unchanged */
+      console.error('Failed to add a new garment item:', error);
     }
   };
 
@@ -101,15 +105,18 @@ function App() {
       setCardToBeDeleted(null);
       setSelectedCard(null);
       setActiveModal('');
-    } catch {
+    } catch (error) {
       /* Request failed: keep the confirmation modal open */
+      console.error('Failed to delete the garment item:', error);
     }
   };
 
   useEffect(() => {
     getItemList()
       .then(setClothingItems)
-      .catch(() => undefined);
+      .catch((error) =>
+        console.error('Failed to load the garment list:', error)
+      );
   }, []);
 
   useEffect(() => {
@@ -128,42 +135,33 @@ function App() {
     >
       <div className="app">
         <BrowserRouter>
+          <Header
+            weather={weather}
+            onOpenNewGarmentModal={handleOpenNewGarmentModal}
+          />
           <Routes>
             <Route
               path="/"
               element={
-                <>
-                  <Header
-                    weather={weather}
-                    onOpenNewGarmentModal={handleOpenNewGarmentModal}
-                  />
-                  <Main
-                    weather={weather}
-                    clothingItems={clothingItems}
-                    onCardClick={handleOpenItemModal}
-                  />
-                  <Footer />
-                </>
+                <Main
+                  weather={weather}
+                  clothingItems={clothingItems}
+                  onCardClick={handleOpenItemModal}
+                />
               }
             />
             <Route
               path="/profile"
               element={
-                <>
-                  <Header
-                    weather={weather}
-                    onOpenNewGarmentModal={handleOpenNewGarmentModal}
-                  />
-                  <Profile
-                    clothingItems={clothingItems}
-                    onAddNewGarment={handleOpenNewGarmentModal}
-                    onCardClick={handleOpenItemModal}
-                  />
-                  <Footer />
-                </>
+                <Profile
+                  clothingItems={clothingItems}
+                  onAddNewGarment={handleOpenNewGarmentModal}
+                  onCardClick={handleOpenItemModal}
+                />
               }
             />
           </Routes>
+          <Footer />
           <AddItemModal
             isOpen={activeModal === 'new-garment'}
             onAddItem={handleAddItem}

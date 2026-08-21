@@ -17,29 +17,15 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, 325px);
+  justify-content: center;
   gap: 20px;
 }
 
-.main__card {
-  min-width: 0;
-}
-
-/* Tablet: 3 columns */
-@media (max-width: 1024px) {
-  .main__cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Phone: 2 columns */
+/* Phone: tighter padding */
 @media (max-width: 768px) {
   .main {
     padding: 0 20px;
-  }
-
-  .main__cards {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 

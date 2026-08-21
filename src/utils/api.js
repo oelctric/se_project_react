@@ -1,43 +1,30 @@
 const baseUrl = 'http://localhost:3001';
 
-const getItemList = () => {
-  return fetch(`${baseUrl}/items`).then((response) => {
-    if (!response.ok) {
-      throw new Error(`API error: ${response.status}`);
-    }
+const checkResponse = (response) => {
+  if (!response.ok) {
+    throw new Error(`API error: ${response.status}`);
+  }
 
-    return response.json();
-  });
+  if (!response.body) {
+    return undefined;
+  }
+
+  return response.json();
 };
 
-const addItem = ({ name, imageUrl, weather }) => {
-  return fetch(`${baseUrl}/items`, {
+const getItemList = () =>
+  fetch(`${baseUrl}/items`).then(checkResponse);
+
+const addItem = ({ name, imageUrl, weather }) =>
+  fetch(`${baseUrl}/items`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, imageUrl, weather }),
-  }).then((response) => {
-    if (!response.ok) {
-      throw new Error(`API error: ${response.status}`);
-    }
+  }).then(checkResponse);
 
-    return response.json();
-  });
-};
-
-const deleteItem = (id) => {
-  return fetch(`${baseUrl}/items/${id}`, {
+const deleteItem = (id) =>
+  fetch(`${baseUrl}/items/${id}`, {
     method: 'DELETE',
-  }).then((response) => {
-    if (!response.ok) {
-      throw new Error(`API error: ${response.status}`);
-    }
-
-    if (!response.body) {
-      return undefined;
-    }
-
-    return response.json();
-  });
-};
+  }).then(checkResponse);
 
 export { getItemList, addItem, deleteItem };
