@@ -1,49 +1,85 @@
 .side-bar {
   display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 32px 0;
+  flex-direction: column;
   flex-shrink: 0;
+  padding: 32px 0;
+}
+
+.side-bar__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .side-bar__avatar {
-  width: 72px;
-  height: 72px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   object-fit: cover;
+  flex-shrink: 0;
+}
+
+.side-bar__avatar_placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  box-sizing: border-box;
 }
 
 .side-bar__name {
   margin: 0;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
 }
 
+.side-bar__data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 24px;
+}
+
 .side-bar__action {
-  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  color: #000;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.side-bar__action:hover {
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {
   .side-bar {
     width: 100%;
     box-sizing: border-box;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
     border-top: 1px solid rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     margin: 0 0 20px;
     padding: 20px 0;
-    gap: 20px;
   }
 
-  .side-bar__avatar {
-    width: 56px;
-    height: 56px;
-    border: 1px solid rgba(0, 0, 0, 0.5);
+  .side-bar__row {
+    flex-direction: column;
+    gap: 12px;
   }
 
   .side-bar__data {
-    min-width: 0;
+    align-items: center;
   }
 
   .side-bar__name {
@@ -51,15 +87,7 @@
   }
 
   .side-bar__action {
-    display: block;
-    margin-top: 12px;
-    font-size: 20px;
     font-weight: 500;
-    line-height: 24px;
     color: rgba(0, 0, 0, 0.6);
-  }
-
-  .side-bar__action:last-child {
-    margin-top: 8px;
   }
 }

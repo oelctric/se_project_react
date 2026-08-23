@@ -13,7 +13,7 @@ function useForm(initialValues) {
     setValues(initialValues);
   };
 
-  return { values, handleChange, handleReset };
+  return { values, handleChange, handleReset, setValues };
 }
 
 export default useForm;

@@ -1,9 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch.jsx';
+import CurrentUserContext from '../../contexts/CurrentUserContext.js';
 import './Header.css';
 
-function Header({ weather, onOpenNewGarmentModal }) {
+function Header({
+  weather,
+  onOpenNewGarmentModal,
+  onOpenLoginModal,
+  onOpenRegisterModal,
+}) {
+  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
   const [isMobileMenuOpened, setIsMobileMenuOpen] = useState(false);
 
   const currentDate = new Date().toLocaleString('default', {
@@ -18,6 +25,16 @@ function Header({ weather, onOpenNewGarmentModal }) {
   const handleAddClothes = () => {
     setIsMobileMenuOpen(false);
     onOpenNewGarmentModal();
+  };
+
+  const handleOpenLogin = () => {
+    setIsMobileMenuOpen(false);
+    onOpenLoginModal();
+  };
+
+  const handleOpenRegister = () => {
+    setIsMobileMenuOpen(false);
+    onOpenRegisterModal();
   };
 
   return (
@@ -54,21 +71,52 @@ function Header({ weather, onOpenNewGarmentModal }) {
           }`}
         >
           <ToggleSwitch />
-          <button
-            type="button"
-            className="header__add"
-            onClick={handleAddClothes}
-          >
-            + Add clothes
-          </button>
-          <Link className="header__profile" to="/profile">
-            <span className="header__name">omar</span>
-            <img
-              className="header__avatar"
-              src="/images/avatar.png"
-              alt="User avatar"
-            />
-          </Link>
+          {isLoggedIn ? (
+            <>
+              <button
+                type="button"
+                className="header__add"
+                onClick={handleAddClothes}
+              >
+                + Add clothes
+              </button>
+              <Link
+                className="header__profile"
+                to="/profile"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span className="header__name">{currentUser.name}</span>
+                {currentUser.avatar ? (
+                  <img
+                    className="header__avatar"
+                    src={currentUser.avatar}
+                    alt={currentUser.name}
+                  />
+                ) : (
+                  <span className="header__avatar header__avatar_placeholder">
+                    {currentUser.name.charAt(0).toUpperCase()}
+                  </span>
+                )}
+              </Link>
+            </>
+          ) : (
+            <>
+              <button
+                type="button"
+                className="header__auth-link"
+                onClick={handleOpenRegister}
+              >
+                Sign Up
+              </button>
+              <button
+                type="button"
+                className="header__auth-link"
+                onClick={handleOpenLogin}
+              >
+                Log In
+              </button>
+            </>
+          )}
         </div>
       </div>
     </header>

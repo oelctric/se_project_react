@@ -8,6 +8,8 @@ function ModalWithForm({
   onClose,
   onSubmit,
   children,
+  afterSubmit,
+  isSubmitDisabled,
 }) {
   return (
     <div
@@ -33,9 +35,16 @@ function ModalWithForm({
         <h2 className="modal__title">{title}</h2>
         <form name={name} onSubmit={onSubmit}>
           {children}
-          <button type="submit" className="modal__submit">
-            {buttonText}
-          </button>
+          <div className="modal__submit-row">
+            <button
+              type="submit"
+              className="modal__submit"
+              disabled={isSubmitDisabled}
+            >
+              {buttonText}
+            </button>
+            {afterSubmit}
+          </div>
         </form>
       </div>
     </div>

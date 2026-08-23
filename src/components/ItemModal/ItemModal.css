@@ -28,6 +28,13 @@
   display: block;
 }
 
+.item-modal__tag {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .item-modal__actions {
   display: flex;
   flex-direction: column;

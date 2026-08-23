@@ -6,18 +6,17 @@
 .clothes-section__heading {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   margin-bottom: 24px;
 }
 
 .clothes-section__title {
   margin: 0;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
 }
 
 .clothes-section__add {
-  margin-left: auto;
   background: none;
   border: none;
   padding: 0;

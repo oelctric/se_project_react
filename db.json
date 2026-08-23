@@ -101,6 +101,64 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
+    },
+    {
+      "name": "testItem",
+      "weather": "hot",
+      "imageUrl": "https://example.com/link.test",
+      "_id": 17
+    },
+    {
+      "name": "q",
+      "weather": "hot",
+      "imageUrl": "https://example.com/link.test",
+      "_id": 18
+    },
+    {
+      "name": "Et cupiditate vel laborum vero eum quod. Rerum quisquam quia. Est inventore quia consectetur rerum enim sapiente. Est omnis sunt nostrum velit qui aut. Officiis quod quia. Earum consequatur quod eaque nemo nisi.",
+      "weather": "hot",
+      "imageUrl": "https://example.com/link.test",
+      "_id": 19
+    },
+    {
+      "weather": "hot",
+      "imageUrl": "https://example.com/link.test",
+      "_id": 20
+    },
+    {
+      "name": "testItem",
+      "imageUrl": "https://example.com/link.test",
+      "_id": 21
+    },
+    {
+      "name": "testItem",
+      "weather": "hot",
+      "imageUrl": "https://thisisnotvalidurl",
+      "_id": 22
+    },
+    {
+      "name": "testItem",
+      "weather": "hot",
+      "imageUrl": "https://example.com/link.test",
+      "_id": 23
+    },
+    {
+      "name": "testItem",
+      "weather": "hot",
+      "imageUrl": "https://example.com/link.test",
+      "_id": 24
+    },
+    {
+      "name": "testItem",
+      "weather": "hot",
+      "imageUrl": "https://example.com/link.test",
+      "_id": 25
+    },
+    {
+      "name": "testItem",
+      "weather": "hot",
+      "imageUrl": "https://example.com/link.test",
+      "_id": 26
     }
   ]
 }

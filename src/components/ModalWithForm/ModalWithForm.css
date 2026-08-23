@@ -5,6 +5,14 @@
   box-sizing: border-box;
 }
 
+.modal_type_login .modal__content,
+.modal_type_register .modal__content,
+.modal_type_edit-profile .modal__content {
+  width: 496px;
+  padding: 28px;
+  box-sizing: border-box;
+}
+
 .modal__content {
   position: relative;
   background-color: #fff;
@@ -18,8 +26,14 @@
   margin: 0 0 24px;
 }
 
-.modal__submit {
+.modal__submit-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin-top: 12px;
+}
+
+.modal__submit {
   background-color: #000;
   color: #fff;
   border: none;
@@ -35,6 +49,37 @@
 
 .modal__submit:hover {
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal__submit:disabled {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.modal__auth-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal__auth-toggle:hover {
+  color: #000;
+}
+
+.modal__error {
+  color: #ff4d00;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  margin: -16px 0 24px;
 }
 
 .form__field {
@@ -133,8 +178,21 @@
     min-height: 0;
   }
 
+  .modal_type_login .modal__content,
+  .modal_type_register .modal__content,
+  .modal_type_edit-profile .modal__content {
+    width: calc(100% - 40px);
+    max-width: 496px;
+  }
+
   .modal__submit {
     width: 100%;
     text-align: center;
+  }
+
+  .modal__submit-row {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
   }
 }

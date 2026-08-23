@@ -1,6 +1,11 @@
+import { useContext } from 'react';
+import CurrentUserContext from '../../contexts/CurrentUserContext.js';
 import './ItemModal.css';
 
 function ItemModal({ isOpen, item, onClose, openConfirmationModal }) {
+  const { currentUser } = useContext(CurrentUserContext);
+  const isOwn = Boolean(item && currentUser && item.owner === currentUser._id);
+
   return (
     <div
       className={`modal modal_type_selected-item ${isOpen ? 'modal_is-opened' : ''}`}
@@ -29,20 +34,24 @@ function ItemModal({ isOpen, item, onClose, openConfirmationModal }) {
               src={item.imageUrl}
               alt={item.name}
             />
-            <span className="item-pill">{item.name}</span>
+            <div className="item-modal__tag">
+              <span className="item-pill">{item.name}</span>
+            </div>
           </div>
           <div className="item-modal__actions">
             <span className="item-modal__name">{item.name}</span>
             <span className="item-modal__weather">
               Weather: {item.weather.toLowerCase()}
             </span>
-            <button
-              type="button"
-              className="item-modal__delete"
-              onClick={() => openConfirmationModal(item)}
-            >
-              Delete item
-            </button>
+            {isOwn && (
+              <button
+                type="button"
+                className="item-modal__delete"
+                onClick={() => openConfirmationModal(item)}
+              >
+                Delete item
+              </button>
+            )}
           </div>
         </div>
       )}
