@@ -2,11 +2,9 @@ const baseUrl = 'http://localhost:3001';
 
 const checkResponse = (response) => {
   if (!response.ok) {
-    throw new Error(`API error: ${response.status}`);
-  }
-
-  if (!response.body) {
-    return undefined;
+    const error = new Error(`API error: ${response.status}`);
+    error.status = response.status;
+    throw error;
   }
 
   return response.json();
