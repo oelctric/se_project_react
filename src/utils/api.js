@@ -50,6 +50,8 @@ const updateProfile = ({ name, avatar }, token) =>
   }).then(checkResponse);
 
 export {
+  baseUrl,
+  checkResponse,
   getItemList,
   addItem,
   deleteItem,

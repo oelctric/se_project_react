@@ -1,14 +1,4 @@
-const baseUrl = 'http://localhost:3001';
-
-const checkResponse = (response) => {
-  if (!response.ok) {
-    const error = new Error(`API error: ${response.status}`);
-    error.status = response.status;
-    throw error;
-  }
-
-  return response.json();
-};
+import { baseUrl, checkResponse } from './api.js';
 
 const signup = ({ name, avatar, email, password }) =>
   fetch(`${baseUrl}/signup`, {

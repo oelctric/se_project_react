@@ -41,28 +41,17 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
-.item-card__like-path {
-  fill: none;
-  stroke: rgba(0, 0, 0, 0.6);
-  stroke-width: 2;
-  transition:
-    fill 0.2s ease,
-    stroke 0.2s ease;
+.item-card__like:hover {
+  opacity: 0.6;
 }
 
-.item-card__like:hover .item-card__like-path {
-  stroke: #000;
-}
-
-.item-card__like-path_liked {
-  fill: #000;
-  stroke: none;
-}
-
-.item-card__like:hover .item-card__like-path_liked {
-  fill: rgba(0, 0, 0, 0.6);
+.item-card__like-icon {
+  width: 18px;
+  height: 15px;
+  display: block;
 }
 
 /* Mobile: square cards per the mobile design */
